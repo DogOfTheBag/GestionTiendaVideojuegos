@@ -29,7 +29,7 @@ public abstract class Producto {
     }
     //validamos precios y stock
     public void setPrecio(double precio) {
-        if(precio < 5) throw new IllegalArgumentException("El precio de un producto debe ser 5 euros o más");
+        if(precio < 5 || precio > 5000) throw new IllegalArgumentException("El precio de un producto debe estar entre 5 y 5000 euros");
         this.precio = precio;
     }
 

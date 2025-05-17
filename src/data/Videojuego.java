@@ -51,6 +51,6 @@ public class Videojuego extends Producto {
 
     @Override
     public String toString() {
-        return  nombre + " | Genero: " + genero + " | Precio: " + precio + "$ |Stock: " + stock + " uds";
+        return  nombre + " | Genero: " + genero + " | Precio: " + precio + "$ | Stock: " + stock + " uds";
     }
 }

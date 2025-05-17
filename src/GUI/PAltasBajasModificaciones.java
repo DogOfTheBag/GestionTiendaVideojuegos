@@ -167,7 +167,7 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No se puede eliminar nada, no hay productos en la tienda");
         else{
             //comparando nombres elimina uno si encuentra uno igual, si no nada.
-            String productoEliminado = JOptionPane.showInputDialog("Introduce el nombre del producto a eliminar");
+            String productoEliminado = JOptionPane.showInputDialog(tienda.toString() + "\nIntroduce el nombre del producto a modificar");
             if (productoEliminado == null) return;
             boolean eliminado = tienda.eliminarProducto(productoEliminado);
             if(eliminado)
@@ -181,6 +181,7 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
         if(tienda.getProductos().isEmpty())
             JOptionPane.showMessageDialog(null, "No se puede modificar nada, no hay productos en la tienda");
         else{
+            try{
             //el modificar es un modificar sencillo de precio y stock, dado que normalmente los productos de la tienda no cambian de nombre y género
             //se podria ampliar, hacer modify más especificos, o añadir más para dar más libertad
             String nombre = JOptionPane.showInputDialog(tienda.toString() + "\nIntroduce el nombre del producto a modificar"); 
@@ -197,7 +198,12 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
             if(modificado)
                 JOptionPane.showMessageDialog(null, "Producto modificado correctamente");
             else
-                JOptionPane.showMessageDialog(null, "Error al modificar el producto");
+                JOptionPane.showMessageDialog(null, "Error, no se ha encontrado el producto o no existe");
+        }catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog(null, "Error al modificar: " + e.getMessage());
+        }
+        
+            
         }
         
     }//GEN-LAST:event_botonModificarActionPerformed
