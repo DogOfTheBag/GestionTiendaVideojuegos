@@ -78,10 +78,6 @@ public class PPal extends javax.swing.JPanel {
     }//GEN-LAST:event_botonJugarActionPerformed
 
     private void botonListadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReglasActionPerformed
-        /*if(tienda.getProductos().isEmpty())
-            JOptionPane.showMessageDialog(null, "No tenemos productos actualmente...", "Listado de productos de la tienda", 1);
-        else
-            JOptionPane.showMessageDialog(null, tienda.toString(), "Listado de productos de la tienda", 1);*/
         v.setContentPane(v.pListados);
         //IMPORTANTE EL REVALIDATE QUE SI NO NO SE CAMBIA EL PANEL ***************************************************
         v.revalidate();
@@ -89,16 +85,14 @@ public class PPal extends javax.swing.JPanel {
     }//GEN-LAST:event_botonReglasActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
-        //dispose hace que se cierre la ventana, asi que cierra la app
+        //he puesto unos mensajes por consola, que he tenido problemas al guardar en el archivo, y esto me dice que se ha guardado.
         System.out.println("Guardando productos desde instancia: " + tienda);
         System.out.println("Cantidad de productos: " + tienda.getProductos().size());
         for (Producto p : tienda.getProductos()) {
             System.out.println("Va a guardarse: " + p);
         }
-
-
         tienda.guardarProductosEnArchivo("res/productos.txt");
-        JOptionPane.showMessageDialog(null, "Hasta la proxima!");
+        JOptionPane.showMessageDialog(null, "Guardando productos en el archivo. Hasta la proxima!");
         v.dispose();
     }//GEN-LAST:event_botonSalirActionPerformed
 

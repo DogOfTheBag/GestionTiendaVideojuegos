@@ -13,7 +13,7 @@ public class Consola extends Producto {
         super(nombre, precio, stock);
         this.generacion = generacion;
     }
-    
+    //verificacion de precio y stock estatico para la funcion xEsValido
         static boolean verificarPrecio(double precio) throws Exception  {
         if(precio >= 5)
             return true;

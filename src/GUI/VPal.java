@@ -18,8 +18,8 @@ public class VPal extends javax.swing.JFrame {
         this.tienda = tienda;
         this.NOM=nom;
         this.setTitle(NOM);
+        //le paso la ventana y la tienda a los paneles para que pueda usarlo facilmente
         ppal = new PPal(this.tienda,this);
-        //le paso el juego al panel del gestion del listado para que pueda usarlo
         pABM = new PAltasBajasModificaciones(this,this.tienda);
         pListados = new PListados(this,this.tienda);
         
@@ -27,7 +27,8 @@ public class VPal extends javax.swing.JFrame {
         this.setSize(800,600);
         this.setLocationRelativeTo(null);
         this.setContentPane(ppal);
-        
+        /*para evitarme lios con los guardados he decidido cambiar la operación de cierre
+        para que cuando cierres la app con la X guarde también los datos*/
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override

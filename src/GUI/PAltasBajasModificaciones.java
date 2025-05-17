@@ -107,11 +107,13 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
 
     private void botonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAltaActionPerformed
         //(Component parentComponent,Object message, String title, int optionType, int messageType, Icon icon, Object[] options, Object initialValue)
-        int seleccion = JOptionPane.showOptionDialog(null, "Pulsa lo que quieras introducir", "Altas", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+        //basicamente he hecho la misma funcion 2 veces, una para consolas y para juegos. En el futuro me convendria unificarlas en caso de añadir mas tipos de producto
+        int seleccion = JOptionPane.showOptionDialog(null, "Pulsa lo que quieras introducir", "Altas", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
         try{
             if(seleccion == 0){ //eligio videojuego
                 String nombre = JOptionPane.showInputDialog("Introduce el nombre del juego");
-                if (nombre == null) return;
+                if (nombre == null) return; //si algun valor es null es que le ha dado a cancelar y se corta la alta
                 String stringPrecio = JOptionPane.showInputDialog("Introduce el precio del juego (13.41 por ejemplo)");
                 if (stringPrecio == null) return;
                 String stringStock = JOptionPane.showInputDialog("Introduce el stock del juego (34 por ejemplo)");
@@ -150,6 +152,7 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null,"Formato de precio o stock incorrectos, introduce numeros");
         }
+        //de nuevo, para comprobar que ha cambiado la cantidad de productos
         System.out.println("Productos después de alta: " + tienda.getProductos().size());
 
     }//GEN-LAST:event_botonAltaActionPerformed
@@ -163,6 +166,7 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
         if(tienda.getProductos().isEmpty())
             JOptionPane.showMessageDialog(null, "No se puede eliminar nada, no hay productos en la tienda");
         else{
+            //comparando nombres elimina uno si encuentra uno igual, si no nada.
             String productoEliminado = JOptionPane.showInputDialog("Introduce el nombre del producto a eliminar");
             if (productoEliminado == null) return;
             boolean eliminado = tienda.eliminarProducto(productoEliminado);
@@ -177,6 +181,8 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
         if(tienda.getProductos().isEmpty())
             JOptionPane.showMessageDialog(null, "No se puede modificar nada, no hay productos en la tienda");
         else{
+            //el modificar es un modificar sencillo de precio y stock, dado que normalmente los productos de la tienda no cambian de nombre y género
+            //se podria ampliar, hacer modify más especificos, o añadir más para dar más libertad
             String nombre = JOptionPane.showInputDialog(tienda.toString() + "\nIntroduce el nombre del producto a modificar"); 
             if (nombre == null) return;
             String stringPrecio = JOptionPane.showInputDialog("Introduce el nuevo precio del producto"); 

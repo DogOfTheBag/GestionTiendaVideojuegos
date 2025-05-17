@@ -1,11 +1,10 @@
 package data;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author alber
  */
+//hacemos una clase abstracta base preparada para cualquier producto que queramos ofrecer en la tienda, todo protected para que las subclases accedan a esto
 public abstract class Producto {
     protected String nombre;
     protected double precio;
@@ -28,7 +27,7 @@ public abstract class Producto {
     public double getPrecio() {
         return precio;
     }
-
+    //validamos precios y stock
     public void setPrecio(double precio) {
         if(precio < 5) throw new IllegalArgumentException("El precio de un producto debe ser 5 euros o más");
         this.precio = precio;

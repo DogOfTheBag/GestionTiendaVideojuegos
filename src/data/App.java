@@ -16,8 +16,7 @@ public class App extends Thread {
     final String NOM = "Tienda de videojuegos Pleysteichon";
     Tienda tienda;
 
-
-   
+    //dev version para probar cosas, o abrir la ventana si es la versión final
     @Override
     public void run(){
         if(DEV_VERSION){
@@ -26,11 +25,10 @@ public class App extends Thread {
             this.visualizarConsola();
             this.visualizarVentana();
         }else{
-
+        /*creamos la tienda, cargamos los productos del archivo y activamos la ventana*/
         tienda = new Tienda();
            
         tienda.cargarProductosDeArchivo("res/productos.txt");
-        System.out.println("Instancia de tienda en App: " + tienda);
 
         VPal v = new VPal(NOM, tienda);
         v.setVisible(true);
@@ -40,7 +38,7 @@ public class App extends Thread {
     public static void main(String[] args) {
         new App().start();
     }
-
+//***********************************PARA PRUEBAS SOLO*******************************
     private void crearDatosPrueba() {
     tienda.añadirVideojuego("Halo", "Shooter", 18.54, 5);
     tienda.añadirVideojuego("COD", "Shooter", 59.99, 1);

@@ -14,13 +14,14 @@ import java.util.Set;
  *
  * @author alber
  */
+//crearemos un set de producto donde guardaremos cualquier tipo de producto que hagamos
 public class Tienda {
     private final Set <Producto> productos;
 
     public Tienda() {
         productos = new HashSet();
     }
-    
+    //altas bajas y modificaiones, la baja con iterator para evitarnos errores de concurrencia
     public boolean eliminarProducto(String nombre){
         Iterator<Producto> it = productos.iterator();
         while(it.hasNext()){
@@ -44,7 +45,7 @@ public class Tienda {
         }
         return false;
     }
-    
+    //valida si los parametros son válidos y si lo son lo mete, lo haremos booleanos después para lanzar mensajes
     public boolean añadirVideojuego(String nombre, String genero, double precio, int stock) {
         if(!Videojuego.videojuegoEsValido(nombre, genero, precio, stock)) {
             return false;
@@ -66,7 +67,9 @@ public class Tienda {
     public Set<Producto> getProductos() {
         return productos;
     }
-    
+    /*Las siguientes funciones se encargan de cargar y guardar respectivamente
+    la información de los listados en archivos.txt, de forma que tenemos persistencia de informacion al cerrar la app
+    a la vez que mantenemos una distincion entre cada tipo de producto*/
     public void cargarProductosDeArchivo(String ruta){
         File archivo = new File(ruta);
         if(!archivo.exists()) return;
@@ -116,7 +119,7 @@ public class Tienda {
             System.out.println("Error al guardar productos" + e.getMessage());
         }
     }
-
+    //hacemos un toString chulo con StringBuilder
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("En la tienda tenemos estos productos: \n");

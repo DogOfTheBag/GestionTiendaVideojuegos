@@ -161,7 +161,7 @@ public class PListados extends javax.swing.JPanel {
         v.revalidate();
 
     }//GEN-LAST:event_botonVolverActionPerformed
-
+    //listado normal de todos los productos
     private void botonListadoNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListadoNormalActionPerformed
         this.areaListado.setText(tienda.toString());
     }//GEN-LAST:event_botonListadoNormalActionPerformed
@@ -173,12 +173,14 @@ public class PListados extends javax.swing.JPanel {
     private void botonListadoJuegosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListadoJuegosActionPerformed
         this.areaListado.setText(generarListadoFiltrado(Videojuego.class,"Videojuegos de la tienda ordenados por precio \n"));
     }//GEN-LAST:event_botonListadoJuegosActionPerformed
-    
+    /*he hecho esta función general para que no me pase como lo de dar altas, dependiendo del tipo de clase que te pase te hace una lista
+    de cada tipo de producto, con un titulo que le hayas pasado tu. Además, lo ordena de menor a mayor precio. He decidido hacer esto
+    para hacer un listado con lógica dentro de una tienda, aunque podría ampliarse*/
     private String generarListadoFiltrado(Class<?> tipo, String titulo){
         List<Producto> productosOrdenados = new ArrayList<>(v.tienda.getProductos());
         productosOrdenados.sort(Comparator.comparingDouble(Producto::getPrecio));
        
-        StringBuilder resultado = new StringBuilder("Juegos de la tienda ordenados por precio: \n");
+        StringBuilder resultado = new StringBuilder(titulo);
         for (Producto p : productosOrdenados) {
             if(tipo.isInstance(p))
             resultado.append(p.toString()).append("\n");
