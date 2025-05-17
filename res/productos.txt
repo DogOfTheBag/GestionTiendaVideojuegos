@@ -1,0 +1,3 @@
+Consola;PS5;599.99;5242;Novena
+Videojuego;Persona 5 Royal;JRPG;59.99;54
+Videojuego;Yakuza 0;Accion/Aventura;19.99;321

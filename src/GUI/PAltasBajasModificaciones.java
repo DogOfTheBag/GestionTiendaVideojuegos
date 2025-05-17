@@ -150,6 +150,8 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null,"Formato de precio o stock incorrectos, introduce numeros");
         }
+        System.out.println("Productos después de alta: " + tienda.getProductos().size());
+
     }//GEN-LAST:event_botonAltaActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed

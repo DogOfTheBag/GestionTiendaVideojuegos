@@ -1,5 +1,6 @@
 package GUI;
 
+import data.Producto;
 import data.Tienda;
 import javax.swing.JOptionPane;
 
@@ -77,15 +78,26 @@ public class PPal extends javax.swing.JPanel {
     }//GEN-LAST:event_botonJugarActionPerformed
 
     private void botonListadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReglasActionPerformed
-        if(tienda.getProductos().isEmpty())
+        /*if(tienda.getProductos().isEmpty())
             JOptionPane.showMessageDialog(null, "No tenemos productos actualmente...", "Listado de productos de la tienda", 1);
         else
-            JOptionPane.showMessageDialog(null, tienda.toString(), "Listado de productos de la tienda", 1);
+            JOptionPane.showMessageDialog(null, tienda.toString(), "Listado de productos de la tienda", 1);*/
+        v.setContentPane(v.pListados);
+        //IMPORTANTE EL REVALIDATE QUE SI NO NO SE CAMBIA EL PANEL ***************************************************
+        v.revalidate();
 
     }//GEN-LAST:event_botonReglasActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         //dispose hace que se cierre la ventana, asi que cierra la app
+        System.out.println("Guardando productos desde instancia: " + tienda);
+        System.out.println("Cantidad de productos: " + tienda.getProductos().size());
+        for (Producto p : tienda.getProductos()) {
+            System.out.println("Va a guardarse: " + p);
+        }
+
+
+        tienda.guardarProductosEnArchivo("res/productos.txt");
         JOptionPane.showMessageDialog(null, "Hasta la proxima!");
         v.dispose();
     }//GEN-LAST:event_botonSalirActionPerformed

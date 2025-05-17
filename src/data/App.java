@@ -15,6 +15,8 @@ public class App extends Thread {
     final boolean DEV_VERSION = false;
     final String NOM = "Tienda de videojuegos Pleysteichon";
     Tienda tienda;
+
+
    
     @Override
     public void run(){
@@ -24,7 +26,12 @@ public class App extends Thread {
             this.visualizarConsola();
             this.visualizarVentana();
         }else{
+
         tienda = new Tienda();
+           
+        tienda.cargarProductosDeArchivo("res/productos.txt");
+        System.out.println("Instancia de tienda en App: " + tienda);
+
         VPal v = new VPal(NOM, tienda);
         v.setVisible(true);
         }
@@ -41,17 +48,6 @@ public class App extends Thread {
     tienda.añadirConsola("PS5", 599.99, 133, "Novena");
     tienda.añadirConsola("Xbox Series S", 349.99, 58, "Novena");
     tienda.añadirConsola("Xbox Series X", 499.99, 100, "Novena");
-    if(tienda.eliminarProducto("PS5"))
-        JOptionPane.showMessageDialog(null, "Producto Eliminado correctamente");
-    else
-        JOptionPane.showMessageDialog(null, "Error, no se ha encontrado el producto");
-    if(tienda.eliminarProducto("pepe"))
-        JOptionPane.showMessageDialog(null, "Producto Eliminado correctamente");
-    else
-        JOptionPane.showMessageDialog(null, "Error, no se ha encontrado el producto");
-    tienda.modificarPrecioStockProducto("Halo", 54.54, 354);
-    tienda.modificarPrecioStockProducto("COD", 13, 354);
-    tienda.modificarPrecioStockProducto("UFC 5", 54.54, 0);
 
     }
 
@@ -63,5 +59,4 @@ public class App extends Thread {
       //parent component, mensaje, titulo de la ventana, icono que sale
       JOptionPane.showMessageDialog(null, tienda.toString(), NOM, 1);
     }
-    
 }

@@ -1,6 +1,7 @@
 package GUI;
 
 import data.Tienda;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -10,20 +11,32 @@ import javax.swing.JPanel;
 public class VPal extends javax.swing.JFrame {
     
     public Tienda tienda;
-    JPanel ppal,pABM;
+    JPanel ppal,pABM,pListados;
     final String NOM;
     
     public VPal(String nom, Tienda tienda) {
         this.tienda = tienda;
         this.NOM=nom;
         this.setTitle(NOM);
-        ppal = new PPal(tienda,this);
+        ppal = new PPal(this.tienda,this);
         //le paso el juego al panel del gestion del listado para que pueda usarlo
-        pABM = new PAltasBajasModificaciones(this,tienda);
+        pABM = new PAltasBajasModificaciones(this,this.tienda);
+        pListados = new PListados(this,this.tienda);
+        
         initComponents();
         this.setSize(800,600);
         this.setLocationRelativeTo(null);
         this.setContentPane(ppal);
+        
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e){
+                tienda.guardarProductosEnArchivo("res/productos.txt");
+                JOptionPane.showMessageDialog(null, "Productos guardados. Hasta la próxima!");
+                dispose();
+            }
+        });
     }
 
     /**

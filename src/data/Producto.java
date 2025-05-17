@@ -47,6 +47,4 @@ public abstract class Producto {
     public String toString() {
         return "Producto: " + "nombre: " + nombre + ", precio: " + precio + ", stock: " + stock ;
     }
-
-
 }
