@@ -178,6 +178,11 @@ public class PListados extends javax.swing.JPanel {
     para hacer un listado con lógica dentro de una tienda, aunque podría ampliarse*/
     private String generarListadoFiltrado(Class<?> tipo, String titulo){
         List<Producto> productosOrdenados = new ArrayList<>(v.tienda.getProductos());
+        /*para hacer la ordenacion de numeros usaremos el método Sort dentro de lista,
+        con el que usaremos un Comparator, que es el que se encarga de comparar cosas dentro de una lista
+        dependiendo del tipo de comparator. En mi caso uso un comparador de double para el precio
+        después uso Producto::getPrecio, que basicamente es una referencia al metodo getProducto de Producto
+        de forma abreviada. De esta forma el comparador saca el precio del producto rapidamente y lo compara.*/
         productosOrdenados.sort(Comparator.comparingDouble(Producto::getPrecio));
        
         StringBuilder resultado = new StringBuilder(titulo);
