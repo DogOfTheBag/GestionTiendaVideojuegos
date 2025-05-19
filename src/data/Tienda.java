@@ -73,10 +73,10 @@ public class Tienda {
     public void cargarProductosDeArchivo(String ruta){
         File archivo = new File(ruta);
         if(!archivo.exists()) return;
-        
+        //hacemos un bufferedReader, y hacemos una variable temporal para que guarde las lineas leidas
         try(BufferedReader reader = new BufferedReader(new FileReader(archivo))){
         String linea;
-        while((linea = reader.readLine()) != null){
+        while((linea = reader.readLine()) != null){ //mientras haya lineas haz:
             String[] partes = linea.split(";");
             if(partes.length > 0){
                 if(partes[0].equalsIgnoreCase("Videojuego") && partes.length == 5){
@@ -106,7 +106,7 @@ public class Tienda {
     public void guardarProductosEnArchivo(String ruta){
         System.out.println("ENTRANDO A GUARDAR PRODUCTOS");
         System.out.println("PRODUCTOS A GUARDAR: " + productos.size());
-        
+        //hacemos un printerWriter para que escriba texto en el archivo, y hacemos como queremos las lineas
         try(PrintWriter writer = new PrintWriter(new FileWriter(ruta))){
             for (Producto p : productos) {
                 if(p instanceof Videojuego v)
