@@ -1,11 +1,12 @@
-Consola;Nintendo Switch 2;469.99;0;Novena
-Videojuego;Monster Hunter World;RPG;9.99;321
-Videojuego;Forza Horizon 5;Carreras;49.99;231
-Consola;XBOX Series X;499.99;5000;Novena
-Videojuego;FC 25;Deportes;69.99;1234
-Consola;PS5;500.0;300;Novena
-Videojuego;Doom The Dark Ages;Shooter;79.99;421
-Consola;Nintendo Switch;299.99;321;Octava
-Videojuego;Yakuza 0;Accion/Aventura;19.99;321
-Videojuego;Persona 5 Royal;JRPG;59.99;54
 Consola;Nintendo 3DS;149.99;21;Octava
+Videojuego;Doom The Dark Ages;Shooter;79.99;421
+Videojuego;FC 25;Deportes;69.99;1234
+Consola;XBOX Series X;499.99;5000;Novena
+Consola;Nintendo Switch;299.99;321;Octava
+Videojuego;Persona 5 Royal;JRPG;59.99;54
+Consola;PS5;500.0;300;Novena
+Videojuego;Mario Kart World;Carreras;79.99;5441
+Videojuego;Forza Horizon 5;Carreras;49.99;231
+Videojuego;Monster Hunter World;RPG;9.99;321
+Videojuego;Yakuza 0;Accion/Aventura;19.99;321
+Consola;Nintendo Switch 2;469.99;0;Novena

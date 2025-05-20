@@ -167,7 +167,7 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No se puede eliminar nada, no hay productos en la tienda");
         else{
             //comparando nombres elimina uno si encuentra uno igual, si no nada.
-            String productoEliminado = JOptionPane.showInputDialog(tienda.toString() + "\nIntroduce el nombre del producto a modificar");
+            String productoEliminado = JOptionPane.showInputDialog(tienda.toString() + "\nIntroduce el nombre del producto a eliminar");
             if (productoEliminado == null) return;
             boolean eliminado = tienda.eliminarProducto(productoEliminado);
             if(eliminado)
