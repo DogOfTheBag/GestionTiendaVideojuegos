@@ -1,6 +1,8 @@
 package GUI;
 
 import data.Tienda;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -151,6 +153,8 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
             }
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null,"Formato de precio o stock incorrectos, introduce numeros");
+        } catch (Exception ex) {
+            Logger.getLogger(PAltasBajasModificaciones.class.getName()).log(Level.SEVERE, null, ex);
         }
         //de nuevo, para comprobar que ha cambiado la cantidad de productos
         System.out.println("Productos después de alta: " + tienda.getProductos().size());
