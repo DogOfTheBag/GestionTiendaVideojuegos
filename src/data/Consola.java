@@ -51,6 +51,6 @@ public class Consola extends Producto {
 
     @Override
     public String toString() {
-        return  nombre + " | precio: " + precio + "$ | Stock: " + stock + " uds | Generacion: " + generacion; 
+        return  nombre + " | precio: " + precio + "€ | Stock: " + stock + " uds | Generacion: " + generacion; 
     }
 }

@@ -61,6 +61,7 @@ public class PListados extends javax.swing.JPanel {
         setLayout(new java.awt.GridLayout(2, 1));
 
         areaListado.setColumns(20);
+        areaListado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         areaListado.setRows(5);
         jScrollPane1.setViewportView(areaListado);
 

@@ -127,7 +127,7 @@ public class Tienda {
             sb.append(producto.getNombre())
             .append(" | Precio: ")      
             .append(producto.getPrecio())
-            .append("$ | Stock: ")
+            .append("€ | Stock: ")
             .append(producto.getStock())
             .append(" uds");
           //si el producto es un videojuego le metemos el género, consola generacion...  
