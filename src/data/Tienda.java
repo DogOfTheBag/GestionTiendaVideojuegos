@@ -46,7 +46,7 @@ public class Tienda {
         return false;
     }
     //valida si los parametros son válidos y si lo son lo mete, lo haremos booleanos después para lanzar mensajes
-    public boolean añadirVideojuego(String nombre, String genero, double precio, int stock) {
+    public boolean añadirVideojuego(String nombre, String genero, double precio, int stock) throws Exception {
         if(!Videojuego.videojuegoEsValido(nombre, genero, precio, stock)) {
             return false;
         } else {
@@ -55,7 +55,7 @@ public class Tienda {
         }
         
     }
-    public boolean añadirConsola(String nombre, double precio, int stock, String generacion) {
+    public boolean añadirConsola(String nombre, double precio, int stock, String generacion) throws Exception {
           if(!Consola.consolaEsValido(nombre, precio, stock, generacion)) {
               return false;
         } else {
@@ -70,7 +70,7 @@ public class Tienda {
     /*Las siguientes funciones se encargan de cargar y guardar respectivamente
     la información de los listados en archivos.txt, de forma que tenemos persistencia de informacion al cerrar la app
     a la vez que mantenemos una distincion entre cada tipo de producto*/
-    public void cargarProductosDeArchivo(String ruta){
+    public void cargarProductosDeArchivo(String ruta) throws Exception{
         File archivo = new File(ruta);
         if(!archivo.exists()) return;
         //hacemos un bufferedReader, y hacemos una variable temporal para que guarde las lineas leidas
