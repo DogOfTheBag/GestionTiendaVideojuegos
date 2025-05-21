@@ -10,9 +10,9 @@ public class Videojuego extends Producto {
     protected String genero;
     
 
-    public Videojuego(String nombre, String genero, double precio, int stock) {
+    public Videojuego(String nombre, String genero, double precio, int stock) throws Exception {
         super(nombre, precio, stock);
-        this.genero = genero;
+        this.setGenero(genero);
     }
     //verificacion de precio y stock estatico para la funcion xEsValido
     static boolean verificarPrecio(double precio) throws Exception  {
@@ -45,8 +45,11 @@ public class Videojuego extends Producto {
         return genero;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setGenero(String genero) throws Exception {
+        if(genero != null || genero.trim().isEmpty())
+            this.genero = genero;
+        else
+            throw new Exception("El genero no puede estar vacio");
     }
 
     @Override

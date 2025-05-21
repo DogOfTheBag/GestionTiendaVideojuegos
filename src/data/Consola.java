@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 public class Consola extends Producto {
     protected String generacion;
     
-    public Consola(String nombre, double precio, int stock, String generacion) {
+    public Consola(String nombre, double precio, int stock, String generacion) throws Exception {
         super(nombre, precio, stock);
-        this.generacion = generacion;
+        this.setGeneracion(generacion);
     }
     //verificacion de precio y stock estatico para la funcion xEsValido
         static boolean verificarPrecio(double precio) throws Exception  {
@@ -45,8 +45,11 @@ public class Consola extends Producto {
         return generacion;
     }
 
-    public void setGeneracion(String generacion) {
-        this.generacion = generacion;
+    public void setGeneracion(String generacion) throws Exception {
+        if(generacion != null || generacion.trim().isEmpty())
+            this.generacion = generacion;
+        else
+            throw new Exception ("La generacion no puede estar vacia");
     }
 
     @Override

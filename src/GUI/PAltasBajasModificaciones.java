@@ -113,13 +113,13 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
         try{
             if(seleccion == 0){ //eligio videojuego
                 String nombre = JOptionPane.showInputDialog("Introduce el nombre del juego");
-                if (nombre == null) return; //si algun valor es null es que le ha dado a cancelar y se corta la alta
+                if (nombre == null || nombre.trim().isEmpty()) return; //si algun valor es null es que le ha dado a cancelar y se corta la alta
                 String stringPrecio = JOptionPane.showInputDialog("Introduce el precio del juego (13.41 por ejemplo)");
                 if (stringPrecio == null) return;
                 String stringStock = JOptionPane.showInputDialog("Introduce el stock del juego (34 por ejemplo)");
                 if (stringStock == null) return;
                 String genero = JOptionPane.showInputDialog("Introduce el género del juego");
-                if (genero == null) return;
+                if (genero == null || genero.trim().isEmpty()) return;
 
                 double precio = Double.parseDouble(stringPrecio);
                 int stock = Integer.parseInt(stringStock);
@@ -132,13 +132,13 @@ public class PAltasBajasModificaciones extends javax.swing.JPanel {
                 
             }else if(seleccion == 1){ //eligio consola
                 String nombre = JOptionPane.showInputDialog("Introduce el nombre de la consola");
-                if (nombre == null) return;
+                if (nombre == null || nombre.trim().isEmpty()) return;
                 String stringPrecio = JOptionPane.showInputDialog("Introduce el precio de la consola (599.99 por ejemplo)");
                 if (stringPrecio == null) return;
                 String stringStock = JOptionPane.showInputDialog("Introduce el stock de la consola (34 por ejemplo)");
                 if (stringStock == null) return;
                 String generacion = JOptionPane.showInputDialog("Introduce la generación de la consola");
-                if (generacion == null) return;
+                if (generacion == null || generacion.trim().isEmpty()) return;
 
                 double precio = Double.parseDouble(stringPrecio);
                 int stock = Integer.parseInt(stringStock);

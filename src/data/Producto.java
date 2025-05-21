@@ -10,18 +10,21 @@ public abstract class Producto {
     protected double precio;
     protected int stock;
 
-    public Producto(String nombre, double precio, int stock) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
+    public Producto(String nombre, double precio, int stock) throws Exception {
+        this.setNombre(nombre);
+        this.setPrecio(precio);
+        this.setStock(stock);
     }
     
      public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombre) throws Exception {
+        if(nombre != null || nombre.trim().isEmpty())
+            this.nombre = nombre;
+        else
+            throw new Exception("El nombre no puede estar vacio");
     }
 
     public double getPrecio() {
@@ -30,7 +33,7 @@ public abstract class Producto {
     //validamos precios y stock
     public void setPrecio(double precio) {
         if(precio < 5 || precio > 5000) throw new IllegalArgumentException("El precio de un producto debe estar entre 5 y 5000 euros");
-        this.precio = precio;
+            this.precio = precio;
     }
 
     public int getStock() {
@@ -39,7 +42,7 @@ public abstract class Producto {
 
     public void setStock(int stock) {
         if(stock < 0) throw new IllegalArgumentException("El stock de un producto no puede ser negativo");
-        this.stock = stock;
+            this.stock = stock;
     }
 
     @Override
