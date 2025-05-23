@@ -1,6 +1,8 @@
 package data;
 
 import GUI.VPal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,14 +23,22 @@ public class App extends Thread {
     public void run(){
         if(DEV_VERSION){
             tienda = new Tienda();
-            this.crearDatosPrueba();
+            try {
+                this.crearDatosPrueba();
+            } catch (Exception ex) {
+                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.visualizarConsola();
             this.visualizarVentana();
         }else{
         /*creamos la tienda, cargamos los productos del archivo y activamos la ventana*/
         tienda = new Tienda();
            
-        tienda.cargarProductosDeArchivo("res/productos.txt");
+            try {
+                tienda.cargarProductosDeArchivo("res/productos.txt");
+            } catch (Exception ex) {
+                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         VPal v = new VPal(NOM, tienda);
         v.setVisible(true);
@@ -39,7 +49,7 @@ public class App extends Thread {
         new App().start();
     }
 //***********************************PARA PRUEBAS SOLO*******************************
-    private void crearDatosPrueba() {
+    private void crearDatosPrueba() throws Exception {
     tienda.añadirVideojuego("Halo", "Shooter", 18.54, 5);
     tienda.añadirVideojuego("COD", "Shooter", 59.99, 1);
     tienda.añadirVideojuego("UFC 5", "Deportes", 32.54, 2);
